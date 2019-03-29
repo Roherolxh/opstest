@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from rest_framework import routers, serializers, viewsets
 from rest_framework.schemas import get_schema_view
 from rest_framework_swagger.renderers import SwaggerUIRenderer, OpenAPIRenderer
+from testapi.views import StudentsApiView
 
 schema_view = get_schema_view(title='Users API', renderer_classes=[OpenAPIRenderer, SwaggerUIRenderer])
 
@@ -45,5 +46,6 @@ router.register(r'users', UserViewSet)
 urlpatterns = [
 	url(r'^docs/', schema_view, name="docs"),
     url(r'^api/', include(router.urls)),
+    url(r'^testapi/$', StudentsApiView.as_view(), name='testapi'),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
