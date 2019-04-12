@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework_swagger',
+    #sso
+    'simple_sso.sso_server',
+	'simple_sso.sso_client',
 ]
 
 #framework
@@ -129,3 +132,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+#sso
+SSO_SERVER = 'http://127.0.0.1:8001/server/'
+SSO_PUBLIC_KEY = 'public'
+SSO_PRIVATE_KEY = 'private'
+
+LOGIN_URL = '/testsso/client/'
